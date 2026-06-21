@@ -50,3 +50,9 @@ Thumbs.db
 
 
 /.forge/
+
+# since everyone will be testing on their local environment we can ignore the app.id which will be connected to the creator of this project (richard)
+# Every developer should create a free Atlassian Cloud Developer Site.
+# When working on the app, developers should set their local CLI environment using forge environment development
+# and run forge deploy to upload their specific code to their isolated sandbox
+app.id
