@@ -40,6 +40,10 @@ forge install
 - Use the `forge deploy` command when you want to persist code changes.
 - Use the `forge install` command when you want to install the app on a new site.
 - Once the app is installed on a site, the site picks up the new app changes you deploy without needing to rerun the install command.
+  The different branches we may have
+- Development (Where you build and test): You write code on a feature branch. You use forge tunnel or forge deploy -e development to do initial testing of your new UI components or macro logic.
+- Staging (Where you test the final package): You merge your code into the staging branch. You deploy using forge deploy -e staging. Here, you run integration and user acceptance testing on a private Confluence instance to ensure the app won't break when live.
+- Production (Where it goes live): You merge into main and deploy to your real users using forge deploy -e production.
 
 ## Support
 
