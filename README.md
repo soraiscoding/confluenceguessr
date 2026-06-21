@@ -11,15 +11,17 @@ npm install
 ```
 
 ### About Forge App IDs
-For everyone to test their code without interefering with other team members, everyone should run forge register in the root directory of this project.
+For everyone to test their code without interefering with other team members, everyone should clone this repo then run forge register in the root directory of this project.
 If you can't run forge commands then you should set up your machine for forge app development.
 https://developer.atlassian.com/platform/forge/getting-started/
+
+Then you should create your own Atlassian cloud developer site.
 
 The forge register CLI command links your app’s directory to your Atlassian account, fetches the App id, and associates it with your selected Developer Space.
 The App id generated for you will be put into the manifest.yml file and from there you can write code and test for ConfluenceGuessr on your personal environment.
 
 - Then you run forge install
-Select confluence as the product and install ConfluenceGuessr onto your Atlassian site. Now you can start developing and working on ConfluenceGuessr.
+Select confluence as the product and install ConfluenceGuessr onto your Atlassian developer site. Now you can start developing and working on ConfluenceGuessr.
 
 ### Pushing changes to your developer site and onto Confluence
 - When you want to push changes to your personal developer space and confluence site, you deploy your app by running:
@@ -33,7 +35,7 @@ forge install
 ```
 - Once the app is installed on a site, the site picks up the new app changes you deploy without needing to rerun the install command.
 
-### Notes
+## Notes
 
 The different branches we may have
 - Development (Where you build and test): You write code on a feature branch. You use forge tunnel or forge deploy -e development to do initial testing of your new UI components or macro logic.
