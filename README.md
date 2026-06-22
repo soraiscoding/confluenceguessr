@@ -1,6 +1,6 @@
 # ConfluenceGuessr
 
-This project contains a Forge app written in Javascript that displays `Hello World!` in a Confluence global page for now.
+ConfluenceGuessr is a Forge app for Confluence that delivers a knowledge-discovery, interactive guessing game.
 
 See [developer.atlassian.com/platform/forge/](https://developer.atlassian.com/platform/forge) for documentation and tutorials explaining Forge.
 
@@ -9,34 +9,33 @@ See [developer.atlassian.com/platform/forge/](https://developer.atlassian.com/pl
 If you can't run forge commands then you should set up your machine for forge app development.
 https://developer.atlassian.com/platform/forge/getting-started/
 
-- Install top-level dependencies:
-```
-npm install
-```
 
 ## How we will collaborate on this app?
 
-- Clone this repo.
-- Create your own Atlassian developer site. 
-- Then you should run forge login.
-- In the root folder run forge environments create. Create your own development environment. You will work in this environment. Think of it as something like your personal branch on git.
-    You will install this environment onto your developer site. This ensures that you don't overwrite or interfere with other people's code.
-- Run forge login to be able to deploy and install this app (more specfically your version of this app) onto your developer site.
-- Run forge deploy -e <your-environment-name> to deploy to your development environment. 
+1. Clone this repo.
+2. Create your own Atlassian developer site. 
+3. Then you should run forge login.
+4. In the root folder run `forge environments create`. Create your own development environment. You will work in this environment. Think of it as something like your personal branch on git.
+    You will install what's in this environment onto your developer site. This ensures that you don't overwrite or interfere with other people's code and you only install your version of the app to your developer site.
+5. Run `forge login` to be able to deploy and install this app (more specfically your version of this app) onto your developer site.
+6. Run `forge deploy -e <your-environment-name>` to deploy to your development environment. 
     If you deploy to someone else's development environment you will overwrite the code in their development environment.
-- Run forge install -e <your-environment-name> to install the app (that's in your development environment) to your developer site.
+7. Run `forge install -e <your-environment-name>` to install the app (that's in your development environment) to your developer site.
     Select confluence as the product and install ConfluenceGuessr onto your personal Atlassian developer site. 
     Once the app is installed on a site, the site picks up the new app changes you deploy without needing to rerun the install command. 
-    Now you can start developing and working on ConfluenceGuessr.
-    Forge install overwrites everything on a given website so we can't share developer sites as we'd be overwriting each other's app all the time. This ensures that you can test and see how your specific version of this app works on Confluence, without fear of another person's code breaking your specific version of the app.
+
+Now you can start developing and working on ConfluenceGuessr.
+Forge install overwrites everything on a given website so we can't share developer sites as we'd be overwriting each other's app all the time. This ensures that you can test and see how your specific version of this app works on Confluence, without fear of another person's code breaking your specific version of the app.
 
 ### Pushing changes to your confluence developer site
 
-- Configure your default development environment to be <your-environment-name> by running `forge settings set default-environment <your-environment-name>`
+- Configure your default development environment to be <your-environment-name> by running `forge settings set default-environment <your-environment-name>`. This makes <your-environment-name> the default environment you deploy to when you run `forge deploy`.
 - Whenever you make a change to your code and you want to see it/test it on your developer site just run `forge deploy` again. You can also run `forge tunnel`.
+```diff
+- However, if you change your frontend and want to deploy the new frontend to your site, you must `cd static` before running npm run build.
+- Then cd .. and run `forge deploy`.
 ```
-forge deploy -e <your-environment-name> (if you don't do -e <environment-name> you'll deploy to the default development environment. if everyone deploys to the same environment we get problems)
-```
+nb: if you don't do -e <environment-name> you'll deploy to the default development environment. if everyone deploys to the same environment we get problems
 
 ### Pushing to git
 

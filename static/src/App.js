@@ -6,7 +6,7 @@ import CreateGame from './screens/CreateGame.js';
 import QuestionScreen from './screens/QuestionScreen.js';
 
 function App() {
-  //const [data, setData] = useState(null);
+  const [currScreen, setCurrScreen] = useState('createGame');
   // no logic needed for home screen for now
 
   return (
