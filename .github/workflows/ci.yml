@@ -1,6 +1,8 @@
 name: linter and deployer for our code when we push to git
 
-on: push
+on:
+  push:
+  workflow_dispatch:
 
 jobs:
   say-hello:
