@@ -1,11 +1,9 @@
-.button_style {
-    display: flex; /* to have one button per line */
-    align-items: center;
-    justify-content: center;
+.button_style_flex {
     width: 251px;
     height: 40px;
     background-color: #8b22ff;
     color: #ffffff;
     border-radius: 8px;
     border: none;
+    margin-bottom: 20px;
 }

@@ -13,8 +13,6 @@ modules:
 resources:
   - key: main
     path: static/build
-    tunnel:
-      port: 3000
   # so forge knows to use the images e.g. logo
   - key: images
     path: static/src/images
@@ -23,7 +21,7 @@ app:
     name: nodejs24.x
     memoryMB: 256
     architecture: arm64
-  id: ari:cloud:ecosystem::app/
+  id: ari:cloud:ecosystem::app/d548874b-617b-4f41-92c9-9627a2671237
 
 permissions:
   content:

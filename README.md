@@ -81,6 +81,8 @@ installed on example.atlassian.net then you can't install a {your_dev_environmen
 Apparently forge tunnel and custom ui only reacts to changes in the backend index.js file since custom ui code is inside an iframe.
 So I had to manually run npm run build while in the static folder then run forge deploy whenever I want to reload the frontend and see its changes on the ui. I'm looking into an automated way of doing this later. For now it seems running that command manually in the static file, cd .. to the root folder then deploying is the fastest way to reload the frontend.
 
+- If the UI doesn't show anything, there's a bug somewhere in the frontend files probably. It's not a forge server issue probably.
+
 ## Support
 
 See [Get help](https://developer.atlassian.com/platform/forge/get-help/) for how to get help and provide feedback.
