@@ -55,21 +55,21 @@ I have separated the features into separate branches because when testing and co
 
 ## Folder structure
 
-confluenceguessr/
-├── src/
-│   └── index.js                # Backend functions & resolvers
-│  
-├── static/                     # Frontend, Bundled assets (Custom UI only)
-│   └── src                     # Main HTML wrapper for the UI
-│       ├── Components          # E.g. Buttons
-│       ├── Screens             # E.g. CreateGame, QuestionScreen
+confluenceguessr/  
+├── src/  
+│   └── index.js                # Backend functions & resolvers  
+│    
+├── static/                     # Frontend, Bundled assets (Custom UI only)  
+│   └── src                     # Main HTML wrapper for the UI  
+│       ├── Components          # E.g. Buttons  
+│       ├── Screens             # E.g. CreateGame, QuestionScreen      
 │       ├── Data       
-│           └── questions.js    # Has example questions and answers for testing in sprint 1
-│       ├── App.js              # Main App
-│       └── App.css             # App styling
-├── manifest.yml                # App blueprint and permissions
-├── package.json                # Project dependencies
-└── README.md                   # Project documentation
+│           └── questions.js    # Has example questions and answers for testing in sprint 1     
+│       ├── App.js              # Main App    
+│       └── App.css             # App styling    
+├── manifest.yml                # App blueprint and permissions    
+├── package.json                # Project dependencies    
+└── README.md                   # Project documentation    
 
 
 ## Environments
