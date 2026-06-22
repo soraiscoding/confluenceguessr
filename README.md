@@ -1,6 +1,6 @@
 # ConfluenceGuessr
 
-This project contains a Forge app written in Javascript that displays `Hello World!` in a Confluence global page for now.
+ConfluenceGuessr is a Forge app for Confluence that delivers a knowledge-discovery, interactive guessing game.
 
 See [developer.atlassian.com/platform/forge/](https://developer.atlassian.com/platform/forge) for documentation and tutorials explaining Forge.
 
@@ -9,38 +9,37 @@ See [developer.atlassian.com/platform/forge/](https://developer.atlassian.com/pl
 If you can't run forge commands then you should set up your machine for forge app development.
 https://developer.atlassian.com/platform/forge/getting-started/
 
-- Install top-level dependencies:
-```
-npm install
-```
 
-## How we will collaborate on this app?
+### How we will collaborate on this app?
 
-- Clone this repo.
-- Create your own Atlassian developer site. 
-- Then you should run forge login.
-- In the root folder run forge environments create. Create your own development environment. You will work in this environment. Think of it as something like your personal branch on git.
-    You will install this environment onto your developer site. This ensures that you don't overwrite or interfere with other people's code.
-- Run forge login to be able to deploy and install this app (more specfically your version of this app) onto your developer site.
-- Run forge deploy -e <your-environment-name> to deploy to your development environment. 
+1. Clone this repo.
+2. Create your own Atlassian developer site. 
+3. Then you should run forge login.
+4. In the root folder run `forge environments create`. Create your own development environment. You will work in this environment. Think of it as something like your personal branch on git.
+    You will install what's in this environment onto your developer site. This ensures that you don't overwrite or interfere with other people's code and you only install your version of the app to your developer site.
+5. Run `forge login` to be able to deploy and install this app (more specfically your version of this app) onto your developer site.
+6. Run `forge deploy -e <your-environment-name>` to deploy to your development environment. 
     If you deploy to someone else's development environment you will overwrite the code in their development environment.
-- Run forge install -e <your-environment-name> to install the app (that's in your development environment) to your developer site.
+7. Run `forge install -e <your-environment-name>` to install the app (that's in your development environment) to your developer site.
     Select confluence as the product and install ConfluenceGuessr onto your personal Atlassian developer site. 
     Once the app is installed on a site, the site picks up the new app changes you deploy without needing to rerun the install command. 
-    Now you can start developing and working on ConfluenceGuessr.
-    Forge install overwrites everything on a given website so we can't share developer sites as we'd be overwriting each other's app all the time. This ensures that you can test and see how your specific version of this app works on Confluence, without fear of another person's code breaking your specific version of the app.
+
+Now you can start developing and working on ConfluenceGuessr.
+Forge install overwrites everything on a given website so we can't share developer sites as we'd be overwriting each other's app all the time. Not sharing developer sites ensures that you can test and see how your specific version of this app works on Confluence, without fear of another person's code breaking your specific version of the app.
 
 ### Pushing changes to your confluence developer site
 
-- Configure your default development environment to be <your-environment-name> by running `forge settings set default-environment <your-environment-name>`
+- Configure your default development environment to be <your-environment-name> by running `forge settings set default-environment <your-environment-name>`. This makes <your-environment-name> the default environment you deploy to when you run `forge deploy`.
 - Whenever you make a change to your code and you want to see it/test it on your developer site just run `forge deploy` again. You can also run `forge tunnel`.
-```
-forge deploy -e <your-environment-name> (if you don't do -e <environment-name> you'll deploy to the default development environment. if everyone deploys to the same environment we get problems)
+```diff
+- However, if you change your frontend and want to deploy the new frontend to your site, 
+you must move into the static folder and run npm run build.
+Then cd .. and run forge deploy normally.
 ```
 
 ### Pushing to git
 
-Probably better to keep your code able to be deployed onto confluence.
+Better to keep your code able to be deployed onto confluence.
 Just in case I want to set up CI/CD so that forge linting is done automatically when code is pushed to github.
 
 ## Explanation of the branches
@@ -48,15 +47,10 @@ Just in case I want to set up CI/CD so that forge linting is done automatically 
 - main. main branch only houses fully working code.
 - feature/{feature}. 
 Those that are responsible for a feature will work in their feature branches.
-I have separated the features into separate branches because when testing and coding up a feature we should be able to do so without interfering with other people; we should be able to code and test freely. When a feature has been tested and is thought to be completely done, we push the feature's code to the testing branch.
-- testing. this houses the code for a feature we want to double check works with other features before pushing to main.
+I have separated the features into separate branches because when testing and coding up a feature we should be able to do so without interfering with other people; we should be able to code and test freely. When a feature has been tested and is thought to be completely done, we push the feature's code to the staging branch.
+- staging. this houses the code for a feature we want to double check works with other features before pushing to main.
 
-The different branches we may have
-- Development (Where you build and test): You write code on a feature branch. You use forge tunnel or forge deploy -e development to do initial testing of your new UI components or macro logic.
-- Staging (Where you test the final package): You merge your code into the staging branch. You deploy using forge deploy -e staging. Here, you run integration and user acceptance testing on a private Confluence instance to ensure the app won't break when live.
-- Production (Where it goes live): You merge into main and deploy to your real users using forge deploy -e production.
-
-### Environments
+## Environments
 
 For the majority of the term we'll be working with the development environment (more specifically your own development environment). As we near sprint 3, we may discuss more about
 the staging and production environments and using them. They are shared environments so discussions should be had before deploying to them.
@@ -80,6 +74,8 @@ installed on example.atlassian.net then you can't install a {your_dev_environmen
 - There was a very strange problem where I run forge tunnel and any changes I made to the App.js file in the static/src folder wouldn't be saved and wouldn't cause the app to reload on my developer site. 
 Apparently forge tunnel and custom ui only reacts to changes in the backend index.js file since custom ui code is inside an iframe.
 So I had to manually run npm run build while in the static folder then run forge deploy whenever I want to reload the frontend and see its changes on the ui. I'm looking into an automated way of doing this later. For now it seems running that command manually in the static file, cd .. to the root folder then deploying is the fastest way to reload the frontend.
+
+- If the UI doesn't show anything, there's a bug somewhere in the frontend files probably. It's not a forge server issue probably.
 
 ## Support
 

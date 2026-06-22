@@ -13,8 +13,6 @@ modules:
 resources:
   - key: main
     path: static/build
-    tunnel:
-      port: 3000
   # so forge knows to use the images e.g. logo
   - key: images
     path: static/src/images
