@@ -13,4 +13,27 @@ jobs:
       - name: Run a terminal command
         run: echo "Hello, GitHub Actions is working!"
 
-  
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Install Forge CLI
+        run: npm install -g @forge/cli
+
+      - name: Inject App ID & Authenticate
+        run: |
+          forge settings set analytics false
+
+      - name: Run Forge Lint
+        run: forge lint
