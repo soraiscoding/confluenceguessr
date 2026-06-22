@@ -2,7 +2,7 @@ import React from 'react';
 //import { invoke } from '@forge/bridge'; this is to call the backend in index.js in ../../src
 import logo from '../images/logo.svg'; 
 import '../components/Button.css';
-import './Question.css';
+import './QuestionScreen.css';
 
 function QuestionScreen() {
   return (

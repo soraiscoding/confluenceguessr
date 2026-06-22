@@ -7,10 +7,10 @@ import QuestionScreen from './screens/QuestionScreen.js';
 
 function App() {
   const [currScreen, setCurrScreen] = useState('createGame');
-  // no logic needed for home screen for now
 
   return (
     <CreateGame />
+
   );
 }
 

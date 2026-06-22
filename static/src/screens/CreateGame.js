@@ -11,7 +11,7 @@ function CreateGame() {
 
       <div className="game_config">
         <button className="button_style_flex">Game mode: Team</button>
-        <button className="button_style_flex">Number of questions: 10</button>
+        <button className="button_style_flex">Number of questions: 20</button>
       </div>
       <div className="create_game">
         <button className="button_style_flex">Create Game</button>
