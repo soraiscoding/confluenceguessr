@@ -10,7 +10,7 @@ If you can't run forge commands then you should set up your machine for forge ap
 https://developer.atlassian.com/platform/forge/getting-started/
 
 
-## How we will collaborate on this app?
+### How we will collaborate on this app?
 
 1. Clone this repo.
 2. Create your own Atlassian developer site. 
@@ -25,21 +25,21 @@ https://developer.atlassian.com/platform/forge/getting-started/
     Once the app is installed on a site, the site picks up the new app changes you deploy without needing to rerun the install command. 
 
 Now you can start developing and working on ConfluenceGuessr.
-Forge install overwrites everything on a given website so we can't share developer sites as we'd be overwriting each other's app all the time. This ensures that you can test and see how your specific version of this app works on Confluence, without fear of another person's code breaking your specific version of the app.
+Forge install overwrites everything on a given website so we can't share developer sites as we'd be overwriting each other's app all the time. Not sharing developer sites ensures that you can test and see how your specific version of this app works on Confluence, without fear of another person's code breaking your specific version of the app.
 
 ### Pushing changes to your confluence developer site
 
 - Configure your default development environment to be <your-environment-name> by running `forge settings set default-environment <your-environment-name>`. This makes <your-environment-name> the default environment you deploy to when you run `forge deploy`.
 - Whenever you make a change to your code and you want to see it/test it on your developer site just run `forge deploy` again. You can also run `forge tunnel`.
 ```diff
-- However, if you change your frontend and want to deploy the new frontend to your site, you must `cd static` before running npm run build.
-- Then cd .. and run `forge deploy`.
+However, if you change your frontend and want to deploy the new frontend to your site, 
+you must move into the static folder before running npm run build.
+- Then cd .. and run forge deploy normally.
 ```
-nb: if you don't do -e <environment-name> you'll deploy to the default development environment. if everyone deploys to the same environment we get problems
 
 ### Pushing to git
 
-Probably better to keep your code able to be deployed onto confluence.
+Better to keep your code able to be deployed onto confluence.
 Just in case I want to set up CI/CD so that forge linting is done automatically when code is pushed to github.
 
 ## Explanation of the branches
@@ -47,15 +47,10 @@ Just in case I want to set up CI/CD so that forge linting is done automatically 
 - main. main branch only houses fully working code.
 - feature/{feature}. 
 Those that are responsible for a feature will work in their feature branches.
-I have separated the features into separate branches because when testing and coding up a feature we should be able to do so without interfering with other people; we should be able to code and test freely. When a feature has been tested and is thought to be completely done, we push the feature's code to the testing branch.
-- testing. this houses the code for a feature we want to double check works with other features before pushing to main.
+I have separated the features into separate branches because when testing and coding up a feature we should be able to do so without interfering with other people; we should be able to code and test freely. When a feature has been tested and is thought to be completely done, we push the feature's code to the staging branch.
+- staging. this houses the code for a feature we want to double check works with other features before pushing to main.
 
-The different branches we may have
-- Development (Where you build and test): You write code on a feature branch. You use forge tunnel or forge deploy -e development to do initial testing of your new UI components or macro logic.
-- Staging (Where you test the final package): You merge your code into the staging branch. You deploy using forge deploy -e staging. Here, you run integration and user acceptance testing on a private Confluence instance to ensure the app won't break when live.
-- Production (Where it goes live): You merge into main and deploy to your real users using forge deploy -e production.
-
-### Environments
+## Environments
 
 For the majority of the term we'll be working with the development environment (more specifically your own development environment). As we near sprint 3, we may discuss more about
 the staging and production environments and using them. They are shared environments so discussions should be had before deploying to them.
