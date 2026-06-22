@@ -1,0 +1,16 @@
+name: linter and deployer for our code when we push to git
+
+on: push
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest # Uses a clean cloud virtual machine
+
+    steps:
+      - name: Copy code into the virtual machine
+        uses: actions/checkout@v4
+
+      - name: Run a terminal command
+        run: echo "Hello, GitHub Actions is working!"
+
+  

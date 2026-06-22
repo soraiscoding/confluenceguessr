@@ -32,9 +32,9 @@ Forge install overwrites everything on a given website so we can't share develop
 - Configure your default development environment to be <your-environment-name> by running `forge settings set default-environment <your-environment-name>`. This makes <your-environment-name> the default environment you deploy to when you run `forge deploy`.
 - Whenever you make a change to your code and you want to see it/test it on your developer site just run `forge deploy` again. You can also run `forge tunnel`.
 ```diff
-However, if you change your frontend and want to deploy the new frontend to your site, 
-you must move into the static folder before running npm run build.
-- Then cd .. and run forge deploy normally.
+- However, if you change your frontend and want to deploy the new frontend to your site, 
+you must move into the static folder and run npm run build.
+Then cd .. and run forge deploy normally.
 ```
 
 ### Pushing to git
