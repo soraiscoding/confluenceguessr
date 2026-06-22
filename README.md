@@ -53,6 +53,25 @@ Those that are responsible for a feature will work in their feature branches.
 I have separated the features into separate branches because when testing and coding up a feature we should be able to do so without interfering with other people; we should be able to code and test freely. When a feature has been tested and is thought to be completely done, we push the feature's code to the staging branch.
 - staging. this houses the code for a feature we want to double check works with other features before pushing to main.
 
+## Folder structure
+
+confluenceguessr/
+├── src/
+│   └── index.js                # Backend functions & resolvers
+│  
+├── static/                     # Frontend, Bundled assets (Custom UI only)
+│   └── src                     # Main HTML wrapper for the UI
+│       ├── Components          # E.g. Buttons
+│       ├── Screens             # E.g. CreateGame, QuestionScreen
+│       ├── Data       
+│           └── questions.js    # Has example questions and answers for testing in sprint 1
+│       ├── App.js              # Main App
+│       └── App.css             # App styling
+├── manifest.yml                # App blueprint and permissions
+├── package.json                # Project dependencies
+└── README.md                   # Project documentation
+
+
 ## Environments
 
 For the majority of the term we'll be working with the development environment (more specifically your own development environment). As we near sprint 3, we may discuss more about
