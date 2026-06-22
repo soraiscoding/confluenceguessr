@@ -38,6 +38,11 @@ npm install
 forge deploy -e <your-environment-name> (if you don't do -e <environment-name> you'll deploy to the default development environment. if everyone deploys to the same environment we get problems)
 ```
 
+### Pushing to git
+
+Probably better to keep your code able to be deployed onto confluence.
+Just in case I want to set up CI/CD so that forge linting is done automatically when code is pushed to github.
+
 ## Explanation of the branches
 
 - main. main branch only houses fully working code.
@@ -72,7 +77,9 @@ When handing off the code we'll delete app id and any other personal details.
 - Forge Confluence does not allow for apps with the same app id but different development environments to be installed on the same atlassian site. So, if you have the default development version of an app
 installed on example.atlassian.net then you can't install a {your_dev_environment} version of the app to that exact site. You MUST uninstall the app from your developer site (with forge uninstall and then specifying the environment) before running forge install again if you want to change what development environment/version of the app you want to run on your site.
 
-- There was a very strange problem where I run forge tunnel and any changes I made to the App.js file in the static/src folder wouldn't be saved and wouldn't cause the app to reload on my developer site. Apparently forge tunnel and custom ui only reacts to changes in the backend index.js file. So I had to manually run npm run build while in the static folder then run forge deploy whenever I want to reload the frontend and see its changes on the ui. I'm looking into an automated way of doing this now.
+- There was a very strange problem where I run forge tunnel and any changes I made to the App.js file in the static/src folder wouldn't be saved and wouldn't cause the app to reload on my developer site. 
+Apparently forge tunnel and custom ui only reacts to changes in the backend index.js file since custom ui code is inside an iframe.
+So I had to manually run npm run build while in the static folder then run forge deploy whenever I want to reload the frontend and see its changes on the ui. I'm looking into an automated way of doing this later. For now it seems running that command manually in the static file, cd .. to the root folder then deploying is the fastest way to reload the frontend.
 
 ## Support
 

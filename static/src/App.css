@@ -6,8 +6,10 @@
     min-height: 50vh;
 }
 
+/* the values are from the figma file */
 .hero_logo {
-    width: 500px;
+    width: 553px;
     height: auto;
-    margin-bottom: 30px; /* for space below the logo for buttons */
+    margin-bottom: 97px; /* for space below the logo for buttons */
+    margin-top: 234px;
 }
