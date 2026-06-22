@@ -55,6 +55,7 @@ I have separated the features into separate branches because when testing and co
 
 ## Folder structure
 
+```text
 confluenceguessr/  
 ├── src/  
 │   └── index.js                # Backend functions & resolvers  
@@ -70,7 +71,7 @@ confluenceguessr/
 ├── manifest.yml                # App blueprint and permissions    
 ├── package.json                # Project dependencies    
 └── README.md                   # Project documentation    
-
+```
 
 ## Environments
 
