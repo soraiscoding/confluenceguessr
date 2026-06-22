@@ -1,0 +1,41 @@
+#name: linter and deployer for our code when we push to git
+
+#on:
+#  push:
+# workflow_dispatch:
+
+#jobs:
+#  say-hello:
+#    runs-on: ubuntu-latest # Uses a clean cloud virtual machine
+
+#    steps:
+#      - name: Copy code into the virtual machine
+#        uses: actions/checkout@v4
+
+#      - name: Run a terminal command
+#        run: echo "Hello, GitHub Actions is working!"
+
+#  lint:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout Code
+#        uses: actions/checkout@v4
+
+#      - name: Setup Node.js
+#        uses: actions/setup-node@v4
+#        with:
+#          node-version: 24 #'lts/*' thought about using the latest supported version
+#          cache: 'npm'
+
+#      - name: Install Dependencies
+#        run: npm ci
+
+#      - name: Install Forge CLI
+#        run: npm install -g @forge/cli
+
+#      - name: Inject App ID & Authenticate
+#        run: |
+#          forge settings set analytics false
+
+#      - name: Run Forge Lint
+#        run: forge lint
