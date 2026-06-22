@@ -25,7 +25,7 @@ https://developer.atlassian.com/platform/forge/getting-started/
     Once the app is installed on a site, the site picks up the new app changes you deploy without needing to rerun the install command. 
 
 You'll be able to see the app on the left navigation bar in Apps and Your apps. 
-It should say confluenceguessr - <your-environment-name> (Dev).
+It should say `confluenceguessr - <your-environment-name> (Dev)`.
 
 Now you can start developing and working on ConfluenceGuessr.
 Forge install overwrites everything on a given website so we can't share developer sites as we'd be overwriting each other's app all the time. Not sharing developer sites ensures that you can test and see how your specific version of this app works on Confluence, without fear of another person's code breaking your specific version of the app.
